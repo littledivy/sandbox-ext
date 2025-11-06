@@ -38,7 +38,7 @@ export async function chromium(sandbox: Sandbox) {
       --start-maximized \
       --no-zygote &`;
 
-  await new Promise((r) => setTimeout(r, 2000));
+  await new Promise((r) => setTimeout(r, 2000)); // ts is fine
   const url = await sandbox.exposeHttp({
     port: 9222,
   });
@@ -46,6 +46,12 @@ export async function chromium(sandbox: Sandbox) {
   console.log("Chrome", url);
   console.log("Desktop", desktopUrl);
   return await connect({ endpoint: url.replace("https", "wss") });
+}
+
+export async function apt(sandbox: Sandbox, pkg: string) {
+  await initializeSandbox(sandbox);
+  await sandbox
+    .sh`sudo DEBIAN_FRONTEND=noninteractive apt-get -y install ${pkg}`;
 }
 
 export async function desktop(sandbox: Sandbox) {
