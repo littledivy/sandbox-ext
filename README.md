@@ -32,3 +32,5 @@ await apt(sandbox, "chocolate-doom");
 await sandbox.sh`DISPLAY=:1 /usr/games/doom`;
 console.log("Play DOOM at:", url);
 ```
+
+<img width="1236" height="882" alt="image" src="https://github.com/user-attachments/assets/2b85571a-4e52-46fc-91a6-561173b5bc4d" />
