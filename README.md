@@ -29,7 +29,7 @@ import { apt, desktop } from "jsr:@divy/sandbox-ext";
 
 const url = await desktop(sandbox);
 await apt(sandbox, "chocolate-doom");
-await sandbox.sh`DISPLAY=:1 /usr/games/doom`;
+await sandbox.sh`DISPLAY=:1 /usr/games/doom&`;
 console.log("Play DOOM at:", url);
 ```
 
